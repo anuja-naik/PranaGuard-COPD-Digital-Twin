@@ -2,7 +2,7 @@ import {useEffect,useState} from 'react';
 import type {ReactNode} from 'react';
 import {Activity, ArrowRight, Bell, BookOpen, BrainCircuit, Check, CheckCircle2, ChevronDown, CloudSun, Database, Download, ExternalLink, FlaskConical, HeartPulse, History as HistoryIcon, LayoutDashboard, Leaf, Menu, Pause, Play, Plus, RefreshCw, Search, Settings2, ShieldCheck, SlidersHorizontal, Sparkles, Users, Waves, Wind, X, MapPin, Clock3, Cpu} from 'lucide-react';
 import {BarChart,Bar,Cell,CartesianGrid,Line,LineChart,ReferenceLine,ResponsiveContainer,Scatter,ScatterChart,Tooltip,XAxis,YAxis} from 'recharts';
-import {api,post} from './api';
+import {api,post,websocketUrl} from './api';
 import {useRemote} from './hooks';
 import {CohortTable,Empty,Loading,MetricCard,Notice,Panel,Pill,RiskChart,TextLink,number,pct,time} from './components';
 import type {Alert,Explanation,History,Horizon,Intervention,Overview,Replay,ScenarioResult,SystemStatus,Twin,Validation,View} from './types';
@@ -14,7 +14,7 @@ function App(){
  const {data:overview,error:loadError}=useRemote<Overview>('/overview',revision);
  const refresh=()=>setRevision(r=>r+1);
  useEffect(()=>{if(overview&&!pid)setPid(overview.replay.demo.patient_id);},[overview,pid]);
- useEffect(()=>{let ws:WebSocket;try{ws=new WebSocket(`${location.protocol==='https:'?'wss':'ws'}://${location.host}/api/ws`);ws.onopen=()=>setSocket(true);ws.onclose=()=>setSocket(false);ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.type==='twin_updated'||m.type==='alert_updated')setRevision(r=>r+1);};}catch{setSocket(false);}const timer=window.setInterval(()=>setRevision(r=>r+1),15000);return ()=>{ws?.close();clearInterval(timer);};},[]);
+ useEffect(()=>{let ws:WebSocket;try{ws=new WebSocket(websocketUrl());ws.onopen=()=>setSocket(true);ws.onclose=()=>setSocket(false);ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.type==='twin_updated'||m.type==='alert_updated')setRevision(r=>r+1);};}catch{setSocket(false);}const timer=window.setInterval(()=>setRevision(r=>r+1),15000);return ()=>{ws?.close();clearInterval(timer);};},[]);
  useEffect(()=>{if(toast){const timer=setTimeout(()=>setToast(''),4500);return ()=>clearTimeout(timer);}},[toast]);
  function navigate(next:View){setView(next);location.hash=next;setMenu(false);}
  const open=(id:string)=>{setPid(id);navigate('patient');};
