@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 from typing import Literal
 from fastapi import FastAPI, HTTPException, Request, WebSocket, WebSocketDisconnect, Depends, Header, Query
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, ConfigDict
 from backend.app.config import DB_PATH
 from backend.app.engine import TwinEngine, now
@@ -54,6 +55,7 @@ def create_app(db_path=None):
         except asyncio.CancelledError:pass
     app=FastAPI(title='PranaGuard synthetic COPD twin API',version='0.1.0',lifespan=lifespan,
                 description='Research prototype; not clinically validated. All patient physiology/outcomes synthetic. No live patient monitoring.')
+    app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=False, allow_methods=['*'], allow_headers=['Content-Type','X-Demo-Token'])
     def engine(request:Request):return request.app.state.engine
     @app.exception_handler(KeyError)
     async def key_error(request,exc):return JSONResponse(status_code=404,content={'detail':str(exc)})
