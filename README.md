@@ -18,10 +18,8 @@
 - **Challenge:** Happiest Health Digital Twin Challenge 2026
 - **Team lead / repository owner:** Anuja Naik
 - **Institution:** Pune Institute of Computer Technology (PICT), Pune
-- **Other team members and roles:** Add the confirmed names and roles here before final submission.
+- **Team member:** Harsh Takerkar — Frontend, backend and documentation.
 - **Clinical advisor:** None claimed.
-
-Please ensure that team composition and institution details match the official Unstop registration before submitting.
 
 ## 2. Problem statement
 
