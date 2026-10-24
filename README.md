@@ -248,20 +248,3 @@ Before any real-world study, the project would require ethics review, informed c
 5. Develop and validate any causal/mechanistic response model before making claims about intervention effects.
 
 ---
-
-## Submission checklist
-
-Before the final Unstop submission, confirm each item:
-
-- [x] Public GitHub repository
-- [x] Live frontend and backend health endpoint
-- [x] README includes project title, problem statement, healthcare use case, technical stack and AI/ML details
-- [x] Architecture diagram supplied in PDF/PPT/SVG formats
-- [x] Project presentation supplied in PDF/PPT formats
-- [x] Open-source license included
-- [ ] Confirmed complete team member names and roles match registration
-- [x] YouTube demo link added to README (still verify Unlisted visibility, playback and 15–20 minute duration)
-- [ ] Public access to repository and linked files checked signed out/incognito
-- [ ] Final deployment and all mandatory links tested immediately before submission
-
-**Do not mark the submission fully complete until the remaining unchecked items are resolved.**
