@@ -216,16 +216,16 @@ Reports: [backend tests](docs/verification/backend-tests.txt), [frontend tests](
 
 These are recorded project test results; they are not independent clinical validation. Re-run tests against the current commit before relying on them.
 
-## 14. Demo video — required submission item
+## 14. Demo video
 
-**Status: Not yet linked in this README.** The challenge form asks for a 15–20 minute demo video uploaded to YouTube as **Unlisted**, with the link included in the README. Do not treat the video requirement as complete until the actual recording is uploaded and its link has been verified.
+**Recorded demo:** [Watch PranaGuard — Digital Twin Challenge 2026](https://youtu.be/G_IQ4HrpZsA)
+
+Please verify before final submission that the video is set to **Unlisted**, plays when opened in a signed-out/incognito browser, and meets the challenge's required **15–20 minute** duration. The link is included here as provided; YouTube visibility and duration have not been independently confirmed.
 
 - [20-minute demo script](docs/demo/DEMO_SCRIPT.md)
 - [Recording guide](docs/demo/RECORDING_GUIDE.md)
 - [Upload checklist](docs/demo/UPLOAD_CHECKLIST.md)
 - [Video status notes](docs/demo/VIDEO_STATUS.md)
-
-After uploading the real demo, replace this section with the YouTube URL, verify it plays in a signed-out/incognito browser, and update `submission_metadata.json` if required.
 
 ## 15. Open-source license
 
@@ -260,7 +260,7 @@ Before the final Unstop submission, confirm each item:
 - [x] Project presentation supplied in PDF/PPT formats
 - [x] Open-source license included
 - [ ] Confirmed complete team member names and roles match registration
-- [ ] Actual 15–20 minute Unlisted YouTube demo uploaded and linked above
+- [x] YouTube demo link added to README (still verify Unlisted visibility, playback and 15–20 minute duration)
 - [ ] Public access to repository and linked files checked signed out/incognito
 - [ ] Final deployment and all mandatory links tested immediately before submission
 
